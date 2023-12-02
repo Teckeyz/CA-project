@@ -1,6 +1,4 @@
-## Bing
-Sure, let's go through the code line by line:
-
+#Short explanation of the code, line-by-line
 #include <stdio.h>
 
 This line includes the standard input/output library which allows us to use functions like printf and scanf.
@@ -124,6 +122,3 @@ If the user enters an invalid choice, an error message is printed and the progra
     printf("Result: %lf\n", result);
     return 0;
 }
-
-Finally, the result is printed to the console, and the program returns 0, indicating successful completion.
-That's a step-by-step explanation of the advanced calculator program in C. If you have any more questions or need further clarification, feel free to ask! 😊
