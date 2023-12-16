@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char answers[] = {'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B'};
+    char userAnswers[10];
+    int score = 0;
+
+    // Print a Welcome Message
+    printf("WELCOME TO THE TECHNINJAS QUIZ APLICATION DEMO\n\nAnswer the following networking questions:\n");
+
+    for (int i = 0; i < 10; i++) {
+        printf("Question %d:\n", i + 1);
+        //switch function like in Project 1 (calculator)
+        switch (i) {
+            case 0:
+                printf("What does IP stand for?\nA. Internet Protocol\nB. Internet Provider\nC. Internet Port\nD. Internet Proxy\nYour choice: ");
+                break;
+            case 1:
+                printf("Which protocol is used to transfer files over a network?\nA. FTP\nB. HTTP\nC. TCP\nD. IP\nYour choice: ");
+                break;
+            case 2:
+                printf("Which device is used to connect multiple computers in a local area network (LAN)?\nA. Switch\nB. Router\nC. Hub\nD. Modem\nYour choice: ");
+                break;
+            case 3:
+                printf("What is the purpose of DNS in networking?\nA. Resolve domain names to IP addresses\nB. Encrypt network traffic\nC. Assign IP addresses dynamically\nD. Establish secure connections\nYour choice: ");
+                break;
+            case 4:
+                printf("Which network topology provides high fault tolerance and redundancy?\nA. Mesh\nB. Bus\nC. Star\nD. Ring\nYour choice: ");
+                break;
+            case 5:
+                printf("Which layer of the OSI model is responsible for logical addressing?\nA. Network\nB. Data Link\nC. Transport\nD. Physical\nYour choice: ");
+                break;
+            case 6:
+                printf("What is the default subnet mask for a Class C IP address?\nA. 255.255.255.0\nB. 255.255.0.0\nC. 255.0.0.0\nD. 0.0.0.0\nYour choice: ");
+                break;
+            case 7:
+                printf("Which protocol is used to send email over the internet?\nA. SMTP\nB. POP3\nC. IMAP\nD. HTTP\nYour choice: ");
+                break;
+            case 8:
+                printf("What is the purpose of a firewall in networking?\nA. To protect a network from unauthorized access\nB. To translate private IP addresses to public IP addresses\nC. To assign IP addresses dynamically\nD. To establish secure connections\nYour choice: ");
+                break;
+            case 9:
+                printf("Which protocol is used to translate domain names into IP addresses?\nA. DNS\nB. DHCP\nC. FTP\nD. SNMP\nYour choice: ");
+                break;
+        }
+
+        // Read Users answer and Compare  with the the save answers
+        while (1) {
+            if (scanf(" %c", &userAnswers[i]) == 1) {
+                userAnswers[i] = toupper(userAnswers[i]);  // Convert the user's answer to uppercase if input was lowercase //learned from chat.ai
+                char correctAnswer = toupper(answers[i]);  // Convert the correct answer to uppercase for comparison
+                if (userAnswers[i] == correctAnswer) {
+                    printf("Correct!\n");
+                    score++;
+                } else {
+                    printf("Wrong!\n");
+                }
+                break;
+            } else {
+                printf("Invalid input. Please enter a single character: ");
+                while (getchar() != '\n');
+            }
+        }
+    }
+
+    // Displaying the User's results
+    printf("\nYour total score is: %d\n", score);
+
+    // Displaying feedback based on the user'z score
+    if (score >= 0 && score <= 3) {
+        printf("You need to put more effort\n");
+    } else if (score >= 4 && score <= 5) {
+        printf("You can do it\n");
+    } else if (score >= 6 && score <= 8) {
+        printf("Good job\n");
+    } else if (score >= 9 && score <= 10) {
+        printf("Excellent\n");
+    }
+
+    // Displaying the  correct answers, for correction
+    printf("\nCorrect answers:\n");
+    for (int i = 0; i < 10; i++) {
+        printf("Question %d: %c\n", i + 1, answers[i]);
+    }
+
+    return 0;
+}
